@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+	<header th:replace="plantilla/template :: header"></header>
+	<h1 th:text="@{titulo}"></h1>
+	<div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">DNI</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Id_domicilio</th>
+					<th scope="col">Editar</th>
+					<th scope="col">Eliminar</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="pers:$(personas)">
+					<th scope="row" th:text="$(cl.dni)"></th>
+					<td th:text="$(cl.nombre)"></td>
+					<td th:text="$(cl.id_domicilio.id_domicilio)"></td>
+					<td><a th:href="@{/views/persona/edit/}+ ${cl.dni}" 
+					th:text="Editar" title="Crear nuevo registro"></a></td>
+					<td><a th:href="@{/views/persona/delete/}+ ${cl.dni}" 
+					th:text="Eliminar" title="Eliminar registro"
+					onclick="return confirm('estas seguro de eliminar este registro?')"></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>

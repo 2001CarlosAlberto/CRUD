@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+	<header th:replace="plantilla/template :: header"></header>
+	
+	<div> 
+	<div th:text="@{titulo}"></div>
+	<div th:action="@{/views/personas/save}" th:text="@{persona}" metod="post"></div>
+	<input type="number" placeholder="DNI"> 
+	<input type="text" th:filed="*(nombre)" placeholder="nombre">
+	<input type="number" th:filed="*(id_domicilio)" placeholder="Id_domicilio">  
+	<button ht:href="@{/views/personas/create}" th:text="'Nuevo Regitro'" title="Crear nuevo Registro"></button>
+	</div>
+	
+	<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>
